@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class CheckGuest {
+    public static void main(String[] args) {
+        // Array con i nomi degli invitati 
+        String[] invitati = {"Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti",
+                "Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
+
+        // Creazione di uno scanner per leggere l'input dell'utente
+        Scanner scanner = new Scanner(System.in);
+
+        // Chiedere nome utente
+        System.out.print("Come ti chiami? ");
+        String nomeUtente = scanner.nextLine();
+
+        // Verifica nome in lista invitati
+        boolean trovato = false;
+        for (String invitato : invitati) {
+            if (invitato.toLowerCase().contains(nomeUtente)) { // Cerca sottostringhe
+                trovato = true;
+                break;
+            }
+        }
+
+        // Stampa messaggio
+        if (trovato) {
+            System.out.println("Benvenuto/a alla festa, " + nomeUtente + "!");
+        } else {
+            System.out.println("Mi dispiace, " + nomeUtente + ", ma non sei in lista. Buona serata lo stesso!");
+        }
+        scanner.close();
+    }
+}
